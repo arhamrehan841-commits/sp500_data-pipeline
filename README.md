@@ -30,7 +30,7 @@ The pipeline fetches 1-minute interval stock data from Yahoo Finance, processes 
 
 📜 License
 
-📖 Project Overview
+## 📖 Project Overview
 
 This project uses Apache Airflow to orchestrate an ETL pipeline for real-time S&P 500 data.
 
@@ -44,7 +44,7 @@ Load: Uploads cleaned data to Amazon S3 and Snowflake for long-term storage and 
 
 All tasks run in Dockerized Airflow containers, ensuring a reproducible and isolated environment. 🧩
 
-⚙️ Technologies Used
+## ⚙️ Technologies Used
 Tool	Purpose
 🐳 Apache Airflow	Workflow orchestration and scheduling
 🐋 Docker / Docker Compose	Containerization and environment management
@@ -67,8 +67,8 @@ Before setup, make sure you have:
 
 ✅ Git for cloning the repository
 
-🔧 Setup
-🐳 Docker Setup
+## 🔧 Setup
+### 🐳 Docker Setup
 
 Clone the repository:
 
@@ -88,7 +88,7 @@ Login Credentials:
 Username: airflow
 Password: airflow
 
-🛠️ Airflow Setup
+### 🛠️ Airflow Setup
 
 Initialize Airflow database:
 
@@ -104,14 +104,14 @@ Snowflake Connection: Conn ID snowflake_default — Account, User, Password, Dat
 Schedule the ETL DAG
 Runs automatically based on your configured schedule (@daily or custom).
 
-🚀 Usage
-🔁 Automation
+## 🚀 Usage
+### 🔁 Automation
 
 Pipeline executes automatically based on your schedule.
 
 All tasks (Extract → Transform → Load) are fully traceable in Airflow.
 
-📊 Monitoring
+### 📊 Monitoring
 
 Use the Airflow UI (http://localhost:8080
 ) to:
@@ -122,7 +122,7 @@ View real-time logs 📝
 
 Trigger manual DAG runs 🔄
 
-📦 Data Outputs
+## 📦 Data Outputs
 
 Amazon S3:
 
@@ -140,7 +140,7 @@ DATABASE.SP500_SCHEMA.INTRADAY_DATA
 
 Ready for BI tools (Tableau, Power BI) and SQL analytics.
 
-💡 Contributing
+## 💡 Contributing
 
 We welcome contributions!
 
@@ -160,9 +160,9 @@ Push and open a Pull Request:
 
 git push origin feature/your-feature-name
 
-📜 License
+## 📜 License
 
 Licensed under the MIT License. See the [LICENSE](LICENSE.txt)
  file for full details.
 
-💬 Made with 💻 + 📈 to automate the future of financial analytics.
+###💬 Made with 💻 + 📈 to automate the future of financial analytics.
