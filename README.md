@@ -1,159 +1,164 @@
-🌐 S&P 500 Intraday Data Pipeline 🚀
+S&P 500 Intraday Data Pipeline
 
 An automated ETL pipeline that extracts, transforms, and loads real-time intraday data for the S&P 500 using Apache Airflow running in Docker.
 
-The pipeline fetches 1-minute interval stock data from Yahoo Finance, processes it for advanced analytics, and seamlessly loads it into Amazon S3 and Snowflake for storage and visualization. 📈❄️
+The pipeline fetches 1-minute interval stock data from Yahoo Finance, processes it for advanced analytics, and loads it into Amazon S3 and Snowflake for storage and visualization.
 
-📋 Table of Contents
+Table of Contents
 
-📖 Project Overview
+Project Overview
 
-⚙️ Technologies Used
+Technologies Used
 
-📝 Prerequisites
+Prerequisites
 
-🔧 Setup
+Setup
 
-🐳 Docker Setup
+Docker Setup
 
-🛠️ Airflow Setup
+Airflow Setup
 
-🚀 Usage
+Usage
 
-💡 Contributing
+Contributing
 
-📜 License
+License
 
-📖 Project Overview
+Project Overview
 
 This project leverages Apache Airflow for orchestration and scheduling of an ETL pipeline that processes real-time financial data.
 
 Workflow Summary:
 
-Extract → Pulls 1-minute interval data for the top 10 S&P 500 tickers from Yahoo Finance using yfinance.
+Extract: Pulls 1-minute interval data for the top 10 S&P 500 tickers from Yahoo Finance using yfinance.
 
-Transform → Enhances the dataset with calculated minute returns, trading hours, and additional metrics for analysis.
+Transform: Enhances the dataset with calculated minute returns, trading hours, and additional metrics.
 
-Load → Pushes the cleaned, transformed data to both Amazon S3 and Snowflake for long-term storage and querying.
+Load: Pushes the cleaned and transformed data to both Amazon S3 and Snowflake for long-term storage.
 
-All tasks are automated and executed within Dockerized Airflow containers, ensuring a reproducible and isolated environment. 🧩
+All tasks are automated and executed within Dockerized Airflow containers, ensuring a reproducible and isolated environment.
 
-⚙️ Technologies Used
+Technologies Used
 Tool	Purpose
-🐳 Apache Airflow	Workflow orchestration and scheduling
-🐋 Docker / Docker Compose	Containerization and environment management
-📊 yfinance	Fetching real-time market data
-🧹 pandas	Data cleaning and transformation
-☁️ Amazon S3	Cloud data storage
-❄️ Snowflake	Data warehousing and analytics
-🐍 Python 3.x	Primary programming language
-📝 Prerequisites
+Apache Airflow	Workflow orchestration and scheduling
+Docker / Docker Compose	Containerization and environment management
+yfinance	Fetching real-time market data
+pandas	Data cleaning and transformation
+Amazon S3	Cloud data storage
+Snowflake	Data warehousing and analytics
+Python 3.x	Primary programming language
+Prerequisites
 
 Before setup, ensure you have:
 
-✅ Docker & Docker Compose → Install Docker
+Docker & Docker Compose — Install Docker
 
-✅ Python 3.x installed
-✅ AWS Account → S3 credentials for storage
-✅ Snowflake Account → Database and warehouse access
-✅ Git for cloning the repository
+Python 3.x installed
 
-🔧 Setup
-🐳 Docker Setup
+AWS Account — S3 credentials for storage
 
-1️⃣ Clone the Repository
+Snowflake Account — Database and warehouse access
+
+Git for cloning the repository
+
+Setup
+Docker Setup
+
+Clone the repository:
 
 git clone <repository_url>
 cd <repository_directory>
 
 
-2️⃣ Build and Start Containers
+Build and start containers:
 
 sudo docker-compose up --build -d
 
 
-3️⃣ Access Airflow UI
-Open: 👉 http://localhost:8080
+Access Airflow UI: http://localhost:8080
 
-Login Credentials:
+Login credentials:
 
 Username: airflow
 Password: airflow
 
-🛠️ Airflow Setup
+Airflow Setup
 
-1️⃣ Initialize Airflow Database
+Initialize Airflow database:
 
 sudo docker-compose run --rm airflow-init
 
 
-2️⃣ Create Connections
+Create connections:
 
-AWS Connection → Add your AWS Access Key & Secret Key in the Airflow UI
+AWS Connection — add your AWS Access Key and Secret Key in the Airflow UI
 
-Snowflake Connection → Add your Snowflake credentials (user, password, account, schema)
+Snowflake Connection — add your Snowflake credentials (user, password, account, schema)
 
-3️⃣ Schedule the DAG
-Airflow automatically schedules and executes the ETL DAG as per its defined frequency (@daily, or as configured).
+Schedule the DAG
+Airflow automatically executes the ETL DAG as per the configured schedule (@daily or custom).
 
-🚀 Usage
+Usage
 
 Once deployed, your Airflow DAG (sp500_intraday_dag.py) automates the full ETL process.
 
-🔁 Automation
+Automation
 
-The pipeline runs automatically based on your chosen schedule.
+The pipeline runs automatically based on your schedule
 
-Each step — Extract, Transform, Load — is fully monitored via the Airflow UI.
+Each step — Extract, Transform, Load — is fully monitored via the Airflow UI
 
-📊 Monitoring
+Monitoring
 
 In the Airflow UI, you can:
 
-✅ Track task success/failure
+Track task success/failure
 
-📜 View detailed logs
+View detailed logs
 
-🔁 Trigger manual runs as needed
+Trigger manual runs if needed
 
-📦 Data Outputs
+Data Outputs
 
 Amazon S3:
-Processed data stored under
+Processed data stored under:
 
 s3://your-bucket/sp500_intraday/{trading_date}.csv
 
 
 Snowflake:
-Data loaded into Snowflake tables for advanced analysis and dashboarding.
+Data loaded into Snowflake tables for further analysis.
 
-💡 Contributing
+Contributing
 
-We welcome all contributions! 🧠
+We welcome contributions!
 
 Fork the repository
 
-Create a feature branch
+Create a feature branch:
 
 git checkout -b feature-name
 
 
-Commit your changes
+Commit your changes:
 
 git commit -am "Add new feature"
 
 
-Push your branch
+Push your branch:
 
 git push origin feature-name
 
 
-Open a Pull Request to merge your changes into main
+Open a Pull Request to merge into main
 
-📜 License
+License
 
 Licensed under the MIT License
-.
-See the LICENSE[LICENSE.txt] file for full details.
+. See the LICENSE(LICENSE.txt)
+ file for full details.
 
-💬 Made with 💻 + 📈 to automate the future of financial data.
+💬 Made with code + data to automate the future of financial data.
+If you want, I can also add badges for Python, Airflow, Docker, MIT License, and S3 at the top — which will make the README look professional and portfolio-ready.
+
+Do you want me to do that?
