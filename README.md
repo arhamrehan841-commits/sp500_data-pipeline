@@ -94,7 +94,7 @@ AWS Connection → Add your AWS Access Key & Secret Key in the Airflow UI
 Snowflake Connection → Add your Snowflake credentials (user, password, account, schema)
 
 3️⃣ Schedule the DAG
-Airflow will automatically schedule and execute the ETL DAG as per its defined frequency (@daily, or as configured).
+Airflow automatically schedules and executes the ETL DAG as per its defined frequency (@daily, or as configured).
 
 🚀 Usage
 
@@ -152,8 +152,8 @@ Open a Pull Request to merge your changes into main
 
 📜 License
 
-Licensed under the MIT License.
-See the LICENSE
- file for full details.
+Licensed under the MIT License
+.
+See the LICENSE[LICENSE.txt] file for full details.
 
 💬 Made with 💻 + 📈 to automate the future of financial data.
