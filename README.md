@@ -66,86 +66,113 @@ Ensure the following are installed and configured:
 
 ## Setup
 
-### Docker Setup
+###Docker Setup
 
-```bash
+Clone the repository:
+
 git clone <repository_url>
 cd <repository_directory>
+
+
 Build and start services in detached mode:
-bashsudo docker-compose up --build -d
+
+sudo docker-compose up --build -d
+
+###AirflowSetup
+
 Access the Airflow Web UI:
 http://localhost:8080
-Default Login
+
+Default login credentials:
 
 Username: airflow
 Password: airflow
 
-Airflow Setup
 Initialize the Airflow metadata database:
-bashsudo docker-compose run --rm airflow-init
-Configure Connections in Airflow UI
+
+sudo docker-compose run --rm airflow-init
+
+
+Configure connections in Airflow UI:
 
 AWS S3 Connection
 
 Conn ID: aws_default
-Access Key ID & Secret Access Key
 
+Access Key ID & Secret Access Key
 
 Snowflake Connection
 
 Conn ID: snowflake_default
+
 Account, User, Password, Database, Schema, Warehouse
 
-
-
-The ETL DAG runs automatically on the defined schedule (@daily or custom).
+Schedule the ETL DAG:
+The DAG runs automatically on the defined schedule (@daily or custom).
 
 Usage
 Automation
 
-Pipeline executes automatically per schedule
-All tasks (Extract → Transform → Load) are fully traceable
+Pipeline executes automatically per schedule.
+
+All tasks (Extract → Transform → Load) are fully traceable and monitored in Airflow.
 
 Monitoring
-Use the Airflow UI at http://localhost:8080 to:
+
+Use the Airflow UI (http://localhost:8080
+) to:
 
 Monitor task status (success/failure)
-View real-time logs
-Trigger manual DAG runs
-Set up alerts and retries
 
+View real-time logs
+
+Trigger manual DAG runs
+
+Configure alerts and retries
 
 Data Outputs
+
 Amazon S3
-texts3://your-bucket/sp500_intraday/{trading_date}.csv
+
+Processed data stored under:
+
+s3://your-bucket/sp500_intraday/{trading_date}.csv
+
 
 Partitioned by trading date for efficient querying.
 
 Snowflake
+
 Data loaded into:
-sqlDATABASE.SP500_SCHEMA.INTRADAY_DATA
+
+DATABASE.SP500_SCHEMA.INTRADAY_DATA
+
+
 Ready for BI tools (Tableau, Power BI) and SQL analytics.
 
-Contributing
+###Contributing
+
 We welcome contributions!
 
 Fork the repository
-Create a feature branch:
-bashgit checkout -b feature/your-feature-name
 
-Commit your changes:
-bashgit commit -m "Add: your feature description"
+Create a feature branch:
+
+git checkout -b feature/your-feature-name
+
+
+###Commit your changes:
+
+git commit -m "Add: your feature description"
+
 
 Push and open a Pull Request:
-bashgit push origin feature/your-feature-name
 
+git push origin feature/your-feature-name
 
+###License
 
-License
-This project is licensed under the MIT License.
-See the LICENSE.txt file for full details.
+This project is licensed under the MIT License
+. See the LICENSE.txt file for full details.
 
-
-  Made with code + data to automate the future of financial analytics.
-
-```
+Made with code + data to automate the future of financial analytics.
