@@ -142,7 +142,7 @@ Ready for BI tools (Tableau, Power BI) and SQL analytics.
 
 ## 💡 Contributing
 
-We welcome contributions!
+### We welcome contributions!
 
 Fork the repository 🍴
 
@@ -151,7 +151,7 @@ Create a feature branch:
 git checkout -b feature/your-feature-name
 
 
-Commit your changes:
+### Commit your changes:
 
 git commit -m "Add: your feature description"
 
