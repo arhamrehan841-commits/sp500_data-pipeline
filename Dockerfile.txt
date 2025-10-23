@@ -1,0 +1,14 @@
+# Use official Airflow image
+FROM apache/airflow:2.9.1
+
+# Switch to airflow user (important!)
+USER airflow
+
+# Copy Python dependencies
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Switch back to root (optional)
+USER root

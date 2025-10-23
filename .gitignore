@@ -1,0 +1,53 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Airflow logs (Avoid tracking logs created by Airflow)
+logs/
+*.log
+
+# Airflow metadata database (locally generated file)
+airflow.db
+
+# Virtual environment (avoid tracking your virtual environment if you’re using one)
+.venv/
+env/
+venv/
+ENV/
+
+# VS Code settings (IDE specific files)
+.vscode/
+
+# PyCharm settings (IDE specific files)
+.idea/
+
+# Docker-related files
+docker-compose.override.yml
+docker-compose.override.yaml
+docker-compose.override.json
+*.bak
+*.swp
+.Dockerfile
+
+# Environment variables (make sure to exclude .env files containing credentials)
+.env
+
+# S3 and Snowflake credentials files
+.aws/
+.snowflake/
+
+# Operating system specific
+# macOS
+*.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary files
+tmp/
+*.bak
