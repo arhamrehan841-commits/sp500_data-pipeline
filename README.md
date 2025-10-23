@@ -1,10 +1,10 @@
-🌐 S&P 500 Intraday Data Pipeline 🚀
+# 🌐 S&P 500 Intraday Data Pipeline 🚀
 
 An automated ETL pipeline that extracts, transforms, and loads real-time intraday data for the S&P 500 using Apache Airflow running in Docker.
 
 The pipeline fetches 1-minute interval stock data from Yahoo Finance, processes it for analytics, and loads it into Amazon S3 and Snowflake for storage and visualization. 📈❄️
 
-📋 Table of Contents
+## 📋 Table of Contents
 
 📖 Project Overview
 
