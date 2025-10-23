@@ -1,151 +1,159 @@
 🌐 S&P 500 Intraday Data Pipeline 🚀
 
-This project automates the extraction, transformation, and loading (ETL) of S&P 500 intraday data using Airflow running in Docker. The pipeline fetches real-time 1-minute interval data from Yahoo Finance, processes it, and uploads it to Amazon S3 and Snowflake for further analysis. 📈📊
+An automated ETL pipeline that extracts, transforms, and loads real-time intraday data for the S&P 500 using Apache Airflow running in Docker.
+
+The pipeline fetches 1-minute interval stock data from Yahoo Finance, processes it for advanced analytics, and seamlessly loads it into Amazon S3 and Snowflake for storage and visualization. 📈❄️
 
 📋 Table of Contents
 
-Project Overview
-
-Technologies Used
-
-Prerequisites
-
-Setup
-
-Docker Setup
-
-Airflow Setup
-
-Usage
-
-Contributing
-
-License
-
 📖 Project Overview
-
-This project leverages Apache Airflow for scheduling and orchestrating an ETL pipeline that fetches 1-minute interval data for top S&P 500 stocks from Yahoo Finance.
-
-Extract: Fetches data for the top 10 S&P 500 tickers using yfinance.
-
-Transform: Processes the data by adding minute returns, trading hour, and other useful metrics.
-
-Load: Uploads the cleaned and transformed data to Amazon S3 and Snowflake.
-
-Automated workflows are managed by Apache Airflow and run within Docker containers for an isolated and reproducible environment. 🛠️
 
 ⚙️ Technologies Used
 
-Apache Airflow 🐳 (workflow orchestration)
-
-Docker 🐋 (containerization)
-
-yfinance 📊 (financial data retrieval)
-
-pandas 🧹 (data processing)
-
-Amazon S3 ☁️ (data storage)
-
-Snowflake ❄️ (data warehousing)
-
-Python 🐍 (primary programming language)
-
-Docker Compose 📦 (manages multi-container Docker applications)
-
 📝 Prerequisites
 
-Before setting up the project, ensure that you have the following:
+🔧 Setup
 
-Docker and Docker Compose: Follow the installation guide
- to install Docker on your system.
+🐳 Docker Setup
 
-Python 3.x: Ensure Python is installed on your system.
+🛠️ Airflow Setup
 
-AWS account: You will need AWS credentials (S3 access).
+🚀 Usage
 
-Snowflake account: For loading the data into Snowflake.
+💡 Contributing
 
-Git: To clone the repository.
+📜 License
+
+📖 Project Overview
+
+This project leverages Apache Airflow for orchestration and scheduling of an ETL pipeline that processes real-time financial data.
+
+Workflow Summary:
+
+Extract → Pulls 1-minute interval data for the top 10 S&P 500 tickers from Yahoo Finance using yfinance.
+
+Transform → Enhances the dataset with calculated minute returns, trading hours, and additional metrics for analysis.
+
+Load → Pushes the cleaned, transformed data to both Amazon S3 and Snowflake for long-term storage and querying.
+
+All tasks are automated and executed within Dockerized Airflow containers, ensuring a reproducible and isolated environment. 🧩
+
+⚙️ Technologies Used
+Tool	Purpose
+🐳 Apache Airflow	Workflow orchestration and scheduling
+🐋 Docker / Docker Compose	Containerization and environment management
+📊 yfinance	Fetching real-time market data
+🧹 pandas	Data cleaning and transformation
+☁️ Amazon S3	Cloud data storage
+❄️ Snowflake	Data warehousing and analytics
+🐍 Python 3.x	Primary programming language
+📝 Prerequisites
+
+Before setup, ensure you have:
+
+✅ Docker & Docker Compose → Install Docker
+
+✅ Python 3.x installed
+✅ AWS Account → S3 credentials for storage
+✅ Snowflake Account → Database and warehouse access
+✅ Git for cloning the repository
 
 🔧 Setup
-Docker Setup 🐳
+🐳 Docker Setup
 
-Install Docker:
-
-Follow the Docker installation guide
- to install Docker on your system.
-
-Clone the Repository:
+1️⃣ Clone the Repository
 
 git clone <repository_url>
 cd <repository_directory>
 
 
-Build and Start the Docker Containers:
-Use Docker Compose to set up the Airflow, PostgreSQL, Redis, and other services:
+2️⃣ Build and Start Containers
 
 sudo docker-compose up --build -d
 
 
-Access the Airflow Web UI:
-After the containers are up, visit http://localhost:8080
- to access the Airflow UI. The default login credentials are:
+3️⃣ Access Airflow UI
+Open: 👉 http://localhost:8080
+
+Login Credentials:
 
 Username: airflow
-
 Password: airflow
 
-Airflow Setup 🛠️
+🛠️ Airflow Setup
 
-Initialize the Airflow Database:
+1️⃣ Initialize Airflow Database
 
 sudo docker-compose run --rm airflow-init
 
 
-Create Connections:
+2️⃣ Create Connections
 
-AWS Connection: Add AWS credentials (access key and secret key) in the Airflow UI.
+AWS Connection → Add your AWS Access Key & Secret Key in the Airflow UI
 
-Snowflake Connection: Provide your Snowflake credentials in the Airflow UI.
+Snowflake Connection → Add your Snowflake credentials (user, password, account, schema)
 
-Schedule the DAG:
-Airflow will automatically schedule and run the ETL DAG based on the defined schedule (e.g., @daily).
+3️⃣ Schedule the DAG
+Airflow will automatically schedule and execute the ETL DAG as per its defined frequency (@daily, or as configured).
 
 🚀 Usage
-Automate the ETL Pipeline
 
-Scheduling: The ETL pipeline will automatically run based on the schedule you set in the Airflow UI (or within the DAG file itself).
+Once deployed, your Airflow DAG (sp500_intraday_dag.py) automates the full ETL process.
 
-Monitoring: Monitor the ETL pipeline in real-time via the Airflow UI:
+🔁 Automation
 
-View task logs 📝
+The pipeline runs automatically based on your chosen schedule.
 
-Check task status (success, failure, retries) ✅❌
+Each step — Extract, Transform, Load — is fully monitored via the Airflow UI.
 
-Data Outputs:
+📊 Monitoring
 
-The processed data will be available in Amazon S3 under the folder sp500_intraday/{trading_date}.csv.
+In the Airflow UI, you can:
 
-Data will also be uploaded to Snowflake for further analysis.
+✅ Track task success/failure
 
-Example of running the pipeline:
+📜 View detailed logs
 
-The sp500_intraday_dag.py file orchestrates the pipeline. After the setup, this DAG will automatically trigger to extract, transform, and load the S&P 500 data.
+🔁 Trigger manual runs as needed
+
+📦 Data Outputs
+
+Amazon S3:
+Processed data stored under
+
+s3://your-bucket/sp500_intraday/{trading_date}.csv
+
+
+Snowflake:
+Data loaded into Snowflake tables for advanced analysis and dashboarding.
 
 💡 Contributing
 
-We welcome contributions to improve this project! To contribute:
+We welcome all contributions! 🧠
 
-Fork the repository.
+Fork the repository
 
-Create a new branch (git checkout -b feature-name).
+Create a feature branch
 
-Commit your changes (git commit -am 'Add new feature').
+git checkout -b feature-name
 
-Push your branch (git push origin feature-name).
 
-Open a pull request to merge your changes into the main branch.
+Commit your changes
+
+git commit -am "Add new feature"
+
+
+Push your branch
+
+git push origin feature-name
+
+
+Open a Pull Request to merge your changes into main
 
 📜 License
 
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE.txt) file for more details.
+Licensed under the MIT License.
+See the LICENSE
+ file for full details.
+
+💬 Made with 💻 + 📈 to automate the future of financial data.
