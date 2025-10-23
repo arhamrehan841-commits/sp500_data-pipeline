@@ -124,14 +124,14 @@ Trigger manual DAG runs 🔄
 
 ## 📦 Data Outputs
 
-Amazon S3:
+### Amazon S3:
 
 s3://your-bucket/sp500_intraday/{trading_date}.csv
 
 
 Partitioned by trading date for efficient querying.
 
-Snowflake:
+### Snowflake:
 
 Data loaded into:
 
@@ -165,4 +165,4 @@ git push origin feature/your-feature-name
 Licensed under the MIT License. See the [LICENSE](LICENSE.txt)
  file for full details.
 
-###💬 Made with 💻 + 📈 to automate the future of financial analytics.
+### 💬 Made with 💻 + 📈 to automate the future of financial analytics.
