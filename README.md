@@ -6,7 +6,7 @@ The pipeline fetches 1-minute interval stock data from Yahoo Finance, processes 
 
 ## 📋 Table of Contents
 
-📖 Project Overview
+📖 [Project Overview](#📖 Project Overview)
 
 ⚙️ Technologies Used
 
