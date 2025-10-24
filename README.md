@@ -6,7 +6,7 @@ The pipeline fetches 1-minute interval stock data from Yahoo Finance, processes 
 
 ## 📋 Table of Contents
 
-### 📖 [Project Overview](#📖-Project-Overview)
+### 📖 [Project Overview](#Project-Overview)
 
 ### ⚙️ [Technologies Used](#Technologies-Used)
 
@@ -30,7 +30,7 @@ The pipeline fetches 1-minute interval stock data from Yahoo Finance, processes 
 
 ### 📜 [License](#License)
 
-## 📖 Project Overview
+## Project Overview
 
 This project uses Apache Airflow to orchestrate an ETL pipeline for real-time S&P 500 data.
 
